@@ -138,7 +138,7 @@ end
 function addnewesp(part)
 	if part:IsA("MeshPart") then
 		local name = ids[part.MeshId]
-		if name then
+		if name and part.Transparency ~= 1 then
 			local BillboardGui = Instance.new("BillboardGui")
 			BillboardGui.Active = true
 			BillboardGui.LightInfluence = 1
