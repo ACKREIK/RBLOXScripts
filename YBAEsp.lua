@@ -1,3 +1,12 @@
+function notify(title, text, duration)
+	game:GetService("StarterGui"):SetCore("SendNotification", {
+		Title = title,
+		Text = text,
+		Duration = duration,
+	})
+end
+
+
 local ids = {
 	["rbxassetid://7124126253"] = "Coin",
 	["rbxassetid://7218405255"] = "Roka Fruit",
@@ -12,7 +21,119 @@ local ids = {
 esps = {
 
 }
+local sounds = {
 
+}
+
+function initsounds()
+
+	local UiSounds = Instance.new("Folder")
+	UiSounds.Name = "UiSounds"
+
+	local NotificationSounds = Instance.new("Folder")
+	NotificationSounds.Name = "NotificationSounds"
+	NotificationSounds.Parent = UiSounds
+
+	local Sonarping = Instance.new("Sound")
+	Sonarping.Name = "Sonar ping"
+	Sonarping.SoundId = "rbxassetid://6011559008"
+	Sonarping.Parent = NotificationSounds
+
+	local FluorescentStarterPingLongerV2 = Instance.new("Sound")
+	FluorescentStarterPingLongerV2.Name = "Fluorescent Starter Ping (Longer V2)"
+	FluorescentStarterPingLongerV2.SoundId = "rbxassetid://5535652615"
+	FluorescentStarterPingLongerV2.Parent = NotificationSounds
+
+	local victorywav = Instance.new("Sound")
+	victorywav.Name = "victory.wav"
+	victorywav.SoundId = "rbxassetid://12222253"
+	victorywav.Parent = NotificationSounds
+
+	local Notificationsound2 = Instance.new("Sound")
+	Notificationsound2.Name = "Notification sound #2"
+	Notificationsound2.SoundId = "rbxassetid://8747340426"
+	Notificationsound2.Parent = NotificationSounds
+
+	local SlimeRancherUINotificationPopUp = Instance.new("Sound")
+	SlimeRancherUINotificationPopUp.Name = "Slime Rancher - UI Notification Pop-Up"
+	SlimeRancherUINotificationPopUp.SoundId = "rbxassetid://8486683243"
+	SlimeRancherUINotificationPopUp.Parent = NotificationSounds
+
+	local NewRobloxItemNotificationSound = Instance.new("Sound")
+	NewRobloxItemNotificationSound.Name = "New Roblox+ Item Notification Sound"
+	NewRobloxItemNotificationSound.SoundId = "rbxassetid://232127604"
+	NewRobloxItemNotificationSound.Parent = NotificationSounds
+
+	local FallGuysFallGuySoundWooo = Instance.new("Sound")
+	FallGuysFallGuySoundWooo.Name = "Fall Guys | Fall Guy Sound - Wooo"
+	FallGuysFallGuySoundWooo.SoundId = "rbxassetid://5864343876"
+	FallGuysFallGuySoundWooo.Parent = NotificationSounds
+
+	local vineboomsfx = Instance.new("Sound")
+	vineboomsfx.Name = "vine boom sfx"
+	vineboomsfx.SoundId = "rbxassetid://6823153536"
+	vineboomsfx.Parent = NotificationSounds
+
+	local Gogogo = Instance.new("Sound")
+	Gogogo.Name = "Gogogo"
+	Gogogo.SoundId = "rbxassetid://714072374"
+	Gogogo.Parent = NotificationSounds
+
+	local GoofyYell = Instance.new("Sound")
+	GoofyYell.Name = "Goofy Yell"
+	GoofyYell.SoundId = "rbxassetid://202427593"
+	GoofyYell.Parent = NotificationSounds
+
+	local StarPlatinumYELL = Instance.new("Sound")
+	StarPlatinumYELL.Name = "Star Platinum YELL"
+	StarPlatinumYELL.SoundId = "rbxassetid://5133740808"
+	StarPlatinumYELL.Parent = NotificationSounds
+
+	local mouseinbakedbeans = Instance.new("Sound")
+	mouseinbakedbeans.Name = "mouse in baked beans"
+	mouseinbakedbeans.SoundId = "rbxassetid://7225991789"
+	mouseinbakedbeans.Parent = NotificationSounds
+
+	local Sonic06ShadowNooooo = Instance.new("Sound")
+	Sonic06ShadowNooooo.Name = "Sonic '06 - Shadow - Nooooo!"
+	Sonic06ShadowNooooo.SoundId = "rbxassetid://341220097"
+	Sonic06ShadowNooooo.Parent = NotificationSounds
+
+	local UndertaleShadowPendant = Instance.new("Sound")
+	UndertaleShadowPendant.Name = "Undertale - Shadow Pendant"
+	UndertaleShadowPendant.SoundId = "rbxassetid://6464007319"
+	UndertaleShadowPendant.Parent = NotificationSounds
+
+	local FNAFARShadowBonnieJumpscare = Instance.new("Sound")
+	FNAFARShadowBonnieJumpscare.Name = "FNAF AR Shadow Bonnie Jumpscare"
+	FNAFARShadowBonnieJumpscare.SoundId = "rbxassetid://7463166106"
+	FNAFARShadowBonnieJumpscare.Parent = NotificationSounds
+
+	local YeeHaw15 = Instance.new("Sound")
+	YeeHaw15.Name = "Yee Haw - 15"
+	YeeHaw15.SoundId = "rbxassetid://1848296272"
+	YeeHaw15.Parent = UiSounds
+	
+	YeeHaw15:Play()
+	
+	UiSounds.Parent = workspace
+	
+	for i,v in pairs(game.Workspace.UiSounds.NotificationSounds:GetChildren()) do
+		table.insert(sounds, i)
+	end
+	
+	return UiSounds
+end
+
+
+
+
+
+function sound()
+	if _G.ESPSoundsEnabled == true then
+		sounds[math.random(1, #sounds)]:Play()
+	end
+end
 
 function addnewesp(part)
 	if part:IsA("MeshPart") then
@@ -56,14 +177,15 @@ function addnewesp(part)
 
 			table.insert(esps, BillboardGui)
 
-			print("added new billboard, ", part, part.Name, #esps)
+			print("added new billboard, ", part, name, " Current ESPS: ", #esps)
+			notify("Item Spawned", name, 2)
 			return BillboardGui
 		end
 	end
-	
 
-	
-	
+
+
+
 end
 
 function removeallesps()
