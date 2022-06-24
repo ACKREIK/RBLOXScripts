@@ -1,4 +1,4 @@
-_G.ESPSoundsEnabled = true
+
 function notify(title, text, duration)
 	game:GetService("StarterGui"):SetCore("SendNotification", {
 		Title = title,
