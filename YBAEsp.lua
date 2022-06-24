@@ -1,3 +1,4 @@
+_G.ESPSoundsEnabled = true
 function notify(title, text, duration)
 	game:GetService("StarterGui"):SetCore("SendNotification", {
 		Title = title,
@@ -7,7 +8,7 @@ function notify(title, text, duration)
 end
 
 
-local ids = {
+local ids = {   
 	["rbxassetid://7124126253"] = "Coin",
 	["rbxassetid://7218405255"] = "Roka Fruit",
 	["rbxassetid://60791940"] = "Scroll (i hate pluck users)",
@@ -121,7 +122,7 @@ function initsounds()
 	UiSounds.Parent = workspace
 	
 	for i,v in pairs(game.Workspace.UiSounds.NotificationSounds:GetChildren()) do
-		table.insert(sounds, i)
+		table.insert(sounds, v)
 	end
 	
 	return UiSounds
@@ -152,7 +153,6 @@ function addnewesp(part)
 			Frame.Size = UDim2.new(1, 0, 1, 0)
 			Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Frame.Parent = BillboardGui
-			Frame.BackgroundTransparency = .5
 
 			local TextLabel = Instance.new("TextLabel")
 			TextLabel.Size = UDim2.new(0, 200, 0, 50)
