@@ -25,6 +25,8 @@ local sounds = {
 
 }
 
+print("Sounds are: ", _G.ESPSoundsEnabled)
+
 function initsounds()
 
 	local UiSounds = Instance.new("Folder")
@@ -179,6 +181,7 @@ function addnewesp(part)
 
 			print("added new billboard, ", part, name, " Current ESPS: ", #esps)
 			notify("Item Spawned", name, 2)
+			sound()
 			return BillboardGui
 		end
 	end
