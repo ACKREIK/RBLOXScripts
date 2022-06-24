@@ -125,7 +125,7 @@ function initsounds()
 	return UiSounds
 end
 
-
+initsounds()
 
 
 
@@ -225,3 +225,5 @@ function start()
 end
 
 start()
+
+print("Loaded Script")
