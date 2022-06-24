@@ -158,7 +158,7 @@ function addnewesp(part)
 			TextLabel.FontSize = Enum.FontSize.Size14
 			TextLabel.TextSize = 14
 			TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel.Text = part.Name
+			TextLabel.Text = name
 			TextLabel.TextWrapped = true
 			TextLabel.Font = Enum.Font.SourceSans
 			TextLabel.TextWrap = true
