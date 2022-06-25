@@ -237,13 +237,16 @@ Tabtp:AddButton({
   	end    
 })
 
+function closeor()
+	OrionLib:Destroy()
+end
 
 
 -- Main Tab
 Tabcredits:AddButton({
 	Name = "Close",
 	Callback = function()
-        OrionLib:Destroy()
+       closeor()
   	end    
 })
 
@@ -267,11 +270,26 @@ game:GetService("RunService").RenderStepped:Connect(function()
 		game.Players.LocalPlayer.Character.Values.Active.Value = ""
 	end
 	if nocd then
-		game.Players.LocalPlayer.Character.Cooldowns:ClearAllChildren()
-    	game.Players.LocalPlayer.Cooldowns:ClearAllChildren()
+		for i,v in pairs(game.Players.LocalPlayer.Character.Cooldowns:GetChildren()) do
+			if v.Name ~= "C" and v.Name ~= "END-C" then
+				v:Destroy()
+			end
+		end
+		for i,v in pairs(game.Players.LocalPlayer.Cooldowns:GetChildren()) do
+			if v.Name ~= "C" and v.Name ~= "END-C" then
+				v:Destroy()
+			end
+		end
 	end
     if mashm1s then
 		lmbmash()
+	end
+
+	if game.Lighting:FindFirstChild("ColorCorrection") then
+		game.Lighting.ColorCorrection.Enabled = false
+	end
+	if game.Lighting:FindFirstChild("TSEffect") then
+		game.Lighting.TSEffect.Enabled = false
 	end
 end)
 
