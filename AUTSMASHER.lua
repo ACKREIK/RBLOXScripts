@@ -264,3 +264,6 @@ game:GetService("RunService").RenderStepped:Connect(function()
 		lmbmash()
 	end
 end)
+
+
+OrionLib:Init()
