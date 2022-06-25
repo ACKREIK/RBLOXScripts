@@ -190,7 +190,7 @@ end
 function addnewesp(part)
 	if part:IsA("MeshPart") then
 		esp2(part, part)
-	elseif v:IsA("Mesh") then
+	elseif part:IsA("Mesh") then
 		esp2(part, part.Parent)
 	end
 end
