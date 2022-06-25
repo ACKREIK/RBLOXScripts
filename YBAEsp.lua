@@ -138,9 +138,8 @@ function sound()
 	end
 end
 
-function addnewesp(part)
-	if part:IsA("MeshPart") then
-		local name = ids[part.MeshId]
+function  esp2(part, parent)
+	local name = ids[part.MeshId]
 		if name and part.Transparency ~= 1 then
 			local BillboardGui = Instance.new("BillboardGui")
 			BillboardGui.Active = true
@@ -177,7 +176,7 @@ function addnewesp(part)
 			UIGradient1.Color = ColorSequence.new(Color3.fromRGB(247, 0, 255), Color3.fromRGB(24, 255, 186))
 			UIGradient1.Parent = Frame
 
-			BillboardGui.Parent = part
+			BillboardGui.Parent = parent
 
 			table.insert(esps, BillboardGui)
 
@@ -186,11 +185,14 @@ function addnewesp(part)
 			sound()
 			return BillboardGui
 		end
+end
+
+function addnewesp(part)
+	if part:IsA("MeshPart") then
+		esp2(part, part)
+	elseif v:IsA("Mesh") then
+		esp2(part, part.Parent)
 	end
-
-
-
-
 end
 
 function removeallesps()
