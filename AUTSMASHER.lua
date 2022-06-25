@@ -136,13 +136,23 @@ Tab:AddToggle({
 		antiactive = Value
 	end    
 })
-Tab:AddToggle({
+local beattoggle = Tab:AddToggle({
 	Name = "We use M1s like i beat my cock",
 	Default = false,
 	Callback = function(Value)
 		mashm1s = Value
 	end    
 })
+
+Tab:AddBind({
+	Name = "M1 Beater Toggle",
+	Default = Enum.KeyCode.N,
+	Hold = false,
+	Callback = function()
+		beattoggle:Set(not mashm1s)
+	end    
+})
+
 
 Tab:AddSlider({
 	Name = "Force Stand ID (Funny)",
