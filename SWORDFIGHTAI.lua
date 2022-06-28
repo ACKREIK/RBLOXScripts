@@ -1,6 +1,10 @@
 -- https://www.roblox.com/games/9672723944/The-best-swordfighting-ai
+game:GetService('Players').LocalPlayer.DevEnableMouseLock = true
+
+
 
 function fight()
+    game:GetService('Players').LocalPlayer.DevEnableMouseLock = true
     print("starting fight")
    
 
