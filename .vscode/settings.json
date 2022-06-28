@@ -1,0 +1,9 @@
+{
+    "robloxLsp.diagnostics.globals": [
+        "writefile",
+        "makefolder",
+        "isfolder",
+        "readfile",
+        "mouse1click"
+    ]
+}
