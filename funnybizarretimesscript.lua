@@ -57,11 +57,11 @@ game:GetService("UserInputService").InputBegan:Connect(function(input, gameProce
     end
 
     if input.KeyCode == Enum.KeyCode.Plus then
-        dmg += 1
+        dmg = dmg + 1
         print(dmg)
     end
     if input.KeyCode == Enum.KeyCode.Minus then
-        dmg -= 1
+        dmg = dmg - 1
         print(dmg)
     end
 end)
