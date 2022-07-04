@@ -5,6 +5,8 @@ local plr = game.Players.LocalPlayer
 local chr = plr.Character
 local hrp = chr:WaitForChild("HumanoidRootPart")
 
+local dmg = 1
+
 local anim = Instance.new("Animation", chr)
 anim.AnimationId = "rbxassetid://7185218924"
 
@@ -28,7 +30,7 @@ chr["Left Leg"].Touched:Connect(function(part)
             local args = {
                 hum2, 
                 hrp2.CFrame,
-                10, 
+                dmg, 
                 1,
                 hrp.CFrame.LookVector * 90,
                 "rbxassetid://876171817",
@@ -52,6 +54,15 @@ game:GetService("UserInputService").InputBegan:Connect(function(input, gameProce
         anim:Play()
         anim.Stopped:wait()
         canhit = false
+    end
+
+    if input.KeyCode == Enum.KeyCode.Plus then
+        dmg += 1
+        print(dmg)
+    end
+    if input.KeyCode == Enum.KeyCode.Minus then
+        dmg -= 1
+        print(dmg)
     end
 end)
 
