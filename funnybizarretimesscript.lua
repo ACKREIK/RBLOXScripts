@@ -56,7 +56,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(input, gameProce
         canhit = false
     end
 
-    if input.KeyCode == Enum.KeyCode.Plus then
+    if input.KeyCode == Enum.KeyCode.Equals then
         dmg = dmg + 1
         print(dmg)
     end
